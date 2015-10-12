@@ -1,6 +1,3 @@
-import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
-
 class Calculator {
 
   def calculate(nodes: List[List[Node]]) = {

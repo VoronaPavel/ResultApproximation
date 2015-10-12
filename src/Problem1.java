@@ -48,9 +48,6 @@ public class Problem1 {
             if (nodes.get(0).size() == 1) return nodes;
 
             List<List<Node>> solutions = new ArrayList<>();
-//            for (Reducer reducer : Reducer.values()) {
-//                nodes.forEach();
-//            }
             for (List<Node> n : nodes) {
                 for (Reducer reducer : Reducer.values()) {
                     List<Node> newNodes = new ArrayList<>(n);
