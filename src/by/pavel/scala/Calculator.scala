@@ -2,11 +2,12 @@ package by.pavel.scala
 
 object Calculator {
 
-  def calculate(xs : List[Expression]) : List[Expression] = xs match {
-    case Nil => List()
-    case h :: t :: Nil => List(Addition(h, t), Subtraction(h, t))
-    case h :: t => calculate(t)
-      .map(e => (Addition(h, e), Subtraction(h, e)))
-      .flatMap {case (a, s) => List(a, s)}
+  def expressions(left : Expression, right : Expression) : List[Expression] =
+    List(Addition(left, right), Subtraction(left, right))
+
+  def calculate(exps : List[Expression]) : List[Expression] = exps match {
+    case Nil           => List()
+    case h :: Nil      => exps
+    case h :: t        => calculate(t).flatMap(expressions(h, _ ))
   }
 }
